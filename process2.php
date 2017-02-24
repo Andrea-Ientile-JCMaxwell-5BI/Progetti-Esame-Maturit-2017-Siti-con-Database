@@ -1,15 +1,20 @@
+<html>
+ <head>
+ </head>
+ <body>
+ 
 <?php
  //passo dati dal form login.html
 
  $email = $_POST['email'];
- $psw = $_POST['psw'];
+ $password = $_POST['password'];
  
  //prevenzione
 
  $email = stripcslashes($email);
- $psw = stripcslashes($psw);
+ $password = stripcslashes($password);
  $email = mysql_real_escape_string($email);
- $psw = mysql_real_escape_string($psw);
+ $password = mysql_real_escape_string($password);
 
 //connessione al server e selezione Database
 
@@ -18,10 +23,10 @@ mysql_select_db("login");
 
 // Query  al Database da parte dell'utente
 
-$result = mysql_query("select * from users where email = '$email' and password = '$psw'")
+$result = mysql_query("SELECT * FROM users WHERE email = '$email' and password = '$password'")
             or die("Failed to query database ".mysql_error());
 $row = mysql_fetch_array($result);
-if ($row['email'] == $email && $row['password'] == $psw ){
+if ($row['email'] == $email && $row['password'] == $password ){
  
   echo "Login avvenuto con successo! Benvenuto.".$row['username];
 
@@ -31,5 +36,5 @@ else
       echo "Failed to login!"; 
      }
 ?>
-
- 
+</body>
+ </html>
