@@ -6,22 +6,22 @@
 	<body>
 		
 			<form action= "process.php" method="POST" >
-				<table id=frm align="center">
+				<table width= "450" id=frm align="center">
 				
 				<tr>
-					<td><label> Username </label></td>
-					<td><input type = "text" id = "User" name = "User" align="center"/></td>
+					<td align="center" width="50%"><label> Username </label></td>
+					<td width="50%"><input type = "text" id = "User" name = "User" align="center"/></td>
 				
 				</tr>
 				<tr>
-					<td><label> Password </label></td>
-					<td><input type = "password" id = "Pass" name = "Pass" align="center"/></td>
+					<td align="center" width="50%"><label> Password </label></td>
+					<td width="50%"><input type = "password" id = "Pass" name = "Pass" align="center"/></td>
 					 
 				</tr>
-				<tr>
+				<tr align="center">
 
-				 <td></td>
-	             <td align="center"> <input type = "submit" id = "btn" value = "Login"/> </td>
+				 
+	             <td colspan="2" width="30%"> <input type = "submit" id = "btn" value = "Login"/> </td>
 				</tr>
 				</table>
 				
