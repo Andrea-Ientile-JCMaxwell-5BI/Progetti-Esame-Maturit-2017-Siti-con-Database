@@ -26,5 +26,3 @@ o supportare almeno: testo libero, inserimento di immagini, checkbox, liste, ver
  
  Conoscenze necessarie: HTML in maniere approfondita, linguaggio PHP per il collegamento tra sito e database, CSS per aspetto grafico.
  
- 
-
