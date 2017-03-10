@@ -17,3 +17,14 @@ o generare un pdf del compito
 o dare la possibilità di randomizzare l’ordine delle domande e delle risposte all’interno delle domande
 
 o supportare almeno: testo libero, inserimento di immagini, checkbox, liste, vero/falso
+
+ Pianificazione 
+
+ Tempo stimato completamento progetto: 200 ore + 100 ore di approfondimento.
+ 
+ Conoscenze iniziali: basi HTML, creazione Database con MySql.
+ 
+ Conoscenze necessarie: HTML in maniere approfondita, linguaggio PHP per il collegamento tra sito e database, CSS per aspetto grafico.
+ 
+ 
+
