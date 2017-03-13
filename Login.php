@@ -3,7 +3,7 @@
 		<title>Login Page</title>
 		 <link rel="stylesheet" type="text/css" href="style.css">
 	</head>
-	<body>
+	<body id="body">
 		
 			<form action= "process.php" method="POST" >
 				<table width= "450" id=frm align="center">
