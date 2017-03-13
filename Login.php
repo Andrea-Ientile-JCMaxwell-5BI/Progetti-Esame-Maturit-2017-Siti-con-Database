@@ -21,7 +21,12 @@
 				<tr align="center">
 
 				 
-	             <td colspan="2" width="30%"> <input type = "submit" id = "btn" value = "Login"/> </td>
+	             <td colspan="2" width="30%">
+				 <input type = "submit" id = "btn" value = "Login"/>
+				 <input type = "reset" id = "btn2" value = "Reset"/>
+				 
+				 </td>
+				 
 				</tr>
 				</table>
 				
