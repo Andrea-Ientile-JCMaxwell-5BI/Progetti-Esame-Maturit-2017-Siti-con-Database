@@ -1,4 +1,4 @@
-body{
+#body{
  background:#eee;
 }
 #frm{
@@ -10,20 +10,20 @@ body{
   padding: 40px;
   
 }
-#User{
 
-
-
-
-
- }
- #Pass{
- 
- 
-
- 
- }
 #btn{ 
+  
+    width: 30%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+  
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#btn2{ 
   
     width: 30%;
     background-color: #4CAF50;
