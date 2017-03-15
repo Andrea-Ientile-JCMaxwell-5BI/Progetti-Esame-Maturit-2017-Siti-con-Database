@@ -1,25 +1,27 @@
 <style>
-#tbl{
-
- margin: 0 auto 0 auto;
+body{
 
 
-}
+    }
+
+    
+
 .buttonA {
     background-color: #4CAF50; /* Green */
     border: none;
     color: white;
-    padding: 90px 150px;
+    padding: 90px 108px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 40px;
-    font-family:courier;
+    font-family:georgia;
     margin: 4px 2px;
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
     cursor: pointer;
 }
+
 
 .buttonB {
     background-color: #4CAF50; /* Green */
@@ -30,7 +32,7 @@
     text-decoration: none;
     display: inline-block;
     font-size: 40px;
-    font-family:courier;
+    font-family:georgia;
     margin: 4px 2px;
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
@@ -43,7 +45,7 @@
     color: white;
     padding: 90px 145px;
     text-align: center;
-    font-family:courier;
+    font-family:georgia;
     text-decoration: none;
     display: inline-block;
     font-size: 40px;
@@ -59,7 +61,7 @@
     color: white;
     padding: 90px 120px;
     text-align: center;
-    font-family:courier;
+    font-family:georgia;
     text-decoration: none;
     display: inline-block;
     font-size: 40px;
