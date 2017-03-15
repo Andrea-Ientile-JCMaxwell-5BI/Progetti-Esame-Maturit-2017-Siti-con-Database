@@ -24,7 +24,9 @@
 
 	if ($row['Username'] == $Username && $row['Passwordd'] == $Password)
 	{
-		echo "Login success!!! Welcome " .$row['Username'];
+            //redirect verso pagina
+          header("location: home.html");
+          exit;
 	}
 	else
 	{
