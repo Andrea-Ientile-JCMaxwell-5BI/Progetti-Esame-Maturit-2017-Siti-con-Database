@@ -7,7 +7,7 @@ if(isset($_POST['search']))
     $valueToSearch = $_POST['valueToSearch'];
     // search in all table columns
     // using concat mysql function
-    $query = "SELECT * FROM `classi` WHERE CONCAT(`id_classe`, `aula`, `n_alunni`) LIKE '%".$valueToSearch."%'";
+    $query = "SELECT * FROM `classi` WHERE CONCAT(`aula`) LIKE '%".$valueToSearch."%'";
     $search_result = filterTable($query);
     
 }
@@ -45,9 +45,9 @@ function filterTable($query)
             
             <table>
                 <tr>
-                    <th>Id</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
+                    <th>Id Classe</th>
+                    <th>Aula</th>
+                    <th>Numero Alunni</th>
                    
                 </tr>
 				
