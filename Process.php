@@ -5,7 +5,7 @@
    <?php
 
  $link = mysqli_connect("localhost", "root", "");
- mysqli_select_db($link, "login");
+ mysqli_select_db($link, "database_sito");
 
 	$Username = $_POST['User'];
 	$Password = $_POST['Pass'];
@@ -18,11 +18,11 @@
 
 
 
-	$result = mysqli_query($link, "SELECT * FROM users WHERE Username = '$Username' and Passwordd = '$Password'")
+	$result = mysqli_query($link, "SELECT * FROM professori WHERE username = '$Username' and password = '$Password'")
 			  or die("Failed to query database ".mysql_error());
 	$row = mysqli_fetch_array($result);
 
-	if ($row['Username'] == $Username && $row['Passwordd'] == $Password)
+	if ($row['username'] == $Username && $row['password'] == $Password)
 	{
             //redirect verso pagina
           header("location: home.html");
