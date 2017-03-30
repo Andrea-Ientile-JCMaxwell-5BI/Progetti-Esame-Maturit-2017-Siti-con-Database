@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<title>Login Page</title>
-		 <link rel="stylesheet" type="text/css" href="style.css">
+		 <link rel="stylesheet" type="text/css" href="style_login.css">
 	</head>
 	<body id="body">
 		
@@ -12,7 +12,7 @@
 			</video>          
 		</div>
 		
-			<form action= "process.php" method="POST" >
+			<form action= "process_login.php" method="POST" >
 				<table width= "450" id=frm align="center">
 				
 				<tr>
