@@ -4,10 +4,10 @@
 
 if(isset($_POST['search']))
 {
-    $valueToSearch = $_POST['valueToSearch'];
+    $valore_da_cercare = $_POST['valore_da_cercare'];
     // search in all table columns
     // using concat mysql function
-    $query = "SELECT * FROM `classi` WHERE CONCAT(`aula`) LIKE '%".$valueToSearch."%'";
+    $query = "SELECT * FROM `classi` WHERE CONCAT(`aula`) LIKE '%".$valore_da_cercare."%'";
     $search_result = filterTable($query);
     
 }
@@ -29,19 +29,14 @@ function filterTable($query)
 
 
     <head>
-        <title>PHP HTML TABLE DATA SEARCH</title>
-        <style>
-            table,tr,th,td
-            {
-                border: 1px solid black;
-            }
-        </style>
+        <title>Gestione Classi</title>
+		<link rel="stylesheet" type="text/css" href="style_classi.css">
+       
     </head>
     <body>
         
         <form action="Classi.php" method="post">
-            <input type="text" name="valueToSearch" placeholder="Value To Search"><br><br>
-            <input type="submit" name="search" value="Filter"><br><br>
+            
             
             <table>
                 <tr>
@@ -60,6 +55,10 @@ function filterTable($query)
                 </tr>
                 <?php endwhile;?>
             </table>
+			
+			<input class="text" type="text" name="valore_da_cercare" placeholder="Classe..."><br><br>
+            <input class="submit" type="submit" name="search" value="Cerca per classe"><br><br>
+			
         </form>
         
     </body>
