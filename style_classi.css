@@ -1,0 +1,46 @@
+<style>
+body{
+
+
+
+
+}
+
+input.text {
+  background: white;
+  border: 1px solid red;
+  color: red;
+  width: 150px;
+  margin:300px 300px;
+}
+ 
+input.submit {
+  background: red;
+  border: 1px solid white;
+  color: white;
+  width: 100px;
+  margin: auto;
+}
+
+table{
+    margin: auto;
+    border-collapse: collapse;
+    width: 60%;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+
+
+
+
+
+
+
+
+
+</style>
