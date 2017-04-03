@@ -56,8 +56,10 @@ function filterTable($query)
                 <?php endwhile;?>
             </table>
 			
-			<input type="text" name="valore_da_cercare" placeholder="Classe..."><br><br>
-                        <input class="btn" type="submit" name="search" value="Cerca per classe"><br><br>
+			<p align="center"> <input class="txt" type="text" name="valore_da_cercare" placeholder="Classe..."><br><br>
+                       <input class="btn" type="submit" name="search" value="Cerca per classe">
+					   <input class="btn1" type="submit" name="search" value="Reset">
+					   </p>
 			
         </form>
         
