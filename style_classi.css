@@ -25,12 +25,14 @@ th, td {
     border: none;
     color: white;
    
-    text-align: center;
+  text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
 	position:center;
-	padding: 85px 120px;
+	padding: 85px 70px;
+	font-size: 40px;
+    font-family:georgia;
 	
 
 }
@@ -44,9 +46,11 @@ th, td {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+ font-size: 16px;
 	position:center;
 	padding: 85px 159px;
+	font-size: 40px;
+    font-family:georgia;
 	
 
 }
