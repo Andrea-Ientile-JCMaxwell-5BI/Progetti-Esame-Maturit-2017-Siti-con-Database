@@ -24,22 +24,40 @@ th, td {
     background-color: #4CAF50; /* Green */
     border: none;
     color: white;
+   
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+	position:center;
+	padding: 85px 120px;
+	
+
+}
+
+.btn1 {
+
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-	margin: auto;
+	position:center;
+	padding: 85px 159px;
+	
 
 }
 
+.txt{
+
+font-size: 26px;
+position:center;
+padding: 10px 5px;
 
 
-
-
-
-
-
-
+  }
 
 </style>
