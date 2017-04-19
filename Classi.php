@@ -63,7 +63,7 @@ function filterTable1($query1)
                 <tr>
                     <th>Id Classe</th>
                     <th>Aula</th>
-                    <th>Numero Alunni</th>
+                    <th>Indirizzo</th>
 	            <th>Visualizza Alunni</th>
                    
                 </tr>
@@ -72,7 +72,7 @@ function filterTable1($query1)
                 <tr>
                     <td><?php echo $row['id_classe'];?></td>
                     <td><?php echo $row['aula'];?></td>
-                    <td><?php echo $row['n_alunni'];?></td>
+                    <td><?php echo $row['indirizzo'];?></td>
 	            <td> <input type = "submit" name="visualizza" id = "btn3" value ="visualizza"/> </td>
             
                 </tr>
