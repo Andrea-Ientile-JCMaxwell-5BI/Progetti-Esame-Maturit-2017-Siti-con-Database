@@ -26,3 +26,12 @@ o supportare almeno: testo libero, inserimento di immagini, checkbox, liste, ver
  
  Conoscenze necessarie: HTML in maniere approfondita, linguaggio PHP per il collegamento tra sito e database, CSS per aspetto grafico.
  
+FINALITà es. cosa fa il sito
+
+DESCRIZIONE Tramite l'utilizzo dei compilatori, per professori
+
+PRODOTTO aito web
+OBIETTIVI DIDATTICI RAGGIUNTI: 
+-Obiettivi di apprendimento linguacci programmazione 
+-Metodi ed attività didattica ricerca informazioni 
+-Modi e strumenti valutazione controllo
