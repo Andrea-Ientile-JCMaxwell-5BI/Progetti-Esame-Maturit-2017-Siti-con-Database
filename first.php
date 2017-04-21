@@ -6,7 +6,7 @@
 <body>
   <div class="background-wrap">
     <video id="video-bg-elem" preload="auto" autoplay="true" loop="loop" muted="muted">
-      <source src="video_registrazione.mp4" type="video/mp4">
+      <source src="video_first.mp4" type="video/mp4">
       Video not supported
     </video>
   <table width= "450" id=frm align="center">
