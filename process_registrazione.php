@@ -8,7 +8,7 @@ mysqli_select_db($link,"database_sito");
 
 // recupero i valori si NOME e INDIRIZZO e li assegno alle variabili $name e $address
 $Username = $_POST['username'];
-$Password = $_POST['password'];
+$Password = md5($_POST['password']);
 $Nome = $_POST['nome'];
 $Cognome = $_POST['cognome'];
 $Data_nascita = $_POST['data_nascita'];
