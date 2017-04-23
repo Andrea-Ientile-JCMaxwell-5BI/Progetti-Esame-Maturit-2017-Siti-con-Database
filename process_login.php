@@ -8,7 +8,7 @@
  mysqli_select_db($link, "database_sito");
 
 	$Username = $_POST['User'];
-	$Password = $_POST['Pass'];
+	$Password = md5($_POST['Pass']);
 
 	$Username = stripcslashes($Username);
 	$Password = stripcslashes($Password);
