@@ -2,7 +2,9 @@
 
 <?php
 
-// php select option value from database
+//  SELECT classi.*
+//FROM classi, appartengono, professori
+//WHERE appartengono.id_classe = classi.id_classe AND appartengono.id_professore = professori.id_professore;php select option value from database
 
 // connect to mysql database
 
