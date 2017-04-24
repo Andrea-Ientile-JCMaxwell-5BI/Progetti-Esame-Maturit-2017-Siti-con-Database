@@ -4,6 +4,9 @@
   <body>
    <?php
 
+   //Apro la sessione e...
+  session_start();
+
  $link = mysqli_connect("localhost", "root", "");
  mysqli_select_db($link, "database_sito");
 
@@ -24,6 +27,9 @@
 
 	if ($row['username'] == $Username && $row['password'] == $Password)
 	{
+             $_SESSION['username'] = $Username;
+             $_SESSION['password'] = $Password;
+
             //redirect verso pagina
           header("location: home.html");
           exit;
@@ -35,3 +41,4 @@
    ?>
   </body>
 </html>
+
