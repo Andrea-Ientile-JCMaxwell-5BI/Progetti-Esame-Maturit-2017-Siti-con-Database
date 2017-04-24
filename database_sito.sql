@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Apr 23, 2017 alle 18:22
+-- Creato il: Apr 24, 2017 alle 15:00
 -- Versione del server: 10.1.21-MariaDB
 -- Versione PHP: 7.1.1
 
@@ -113,6 +113,18 @@ CREATE TABLE `domande` (
 -- --------------------------------------------------------
 
 --
+-- Struttura della tabella `elencano`
+--
+
+CREATE TABLE `elencano` (
+  `id_elencano` int(11) NOT NULL,
+  `id_professore` int(11) NOT NULL,
+  `id_domanda` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Struttura della tabella `insegnano`
 --
 
@@ -154,7 +166,9 @@ CREATE TABLE `professori` (
 
 INSERT INTO `professori` (`id_professore`, `nome`, `cognome`, `data_nascita`, `username`, `password`) VALUES
 (1, 'andrea', 'ientile', '1997-09-24', 'ienti', 'esame'),
-(2, 'pappa', 'clown', '1998-01-01', 'andre', 'fesso');
+(2, 'pappa', 'clown', '1998-01-01', 'andre', 'fesso'),
+(3, 'fsadf', 'asdf', '0000-00-00', 'dad', '1c42f9c1ca2f65441465b43cd9339d6c'),
+(4, 'Eduardo', 'Bonafortuna', '1969-09-01', 'bonny', 'f13c58cd3a587d7995463375a528dd4b');
 
 -- --------------------------------------------------------
 
@@ -208,6 +222,13 @@ ALTER TABLE `domande`
   ADD KEY `id_materia` (`id_materia`);
 
 --
+-- Indici per le tabelle `elencano`
+--
+ALTER TABLE `elencano`
+  ADD PRIMARY KEY (`id_professore`,`id_domanda`),
+  ADD KEY `id_domanda` (`id_domanda`);
+
+--
 -- Indici per le tabelle `insegnano`
 --
 ALTER TABLE `insegnano`
@@ -256,7 +277,7 @@ ALTER TABLE `domande`
 -- AUTO_INCREMENT per la tabella `professori`
 --
 ALTER TABLE `professori`
-  MODIFY `id_professore` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_professore` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT per la tabella `voti`
 --
@@ -291,6 +312,13 @@ ALTER TABLE `distribuiscono`
 --
 ALTER TABLE `domande`
   ADD CONSTRAINT `domande_ibfk_1` FOREIGN KEY (`id_materia`) REFERENCES `materie` (`id_materia`);
+
+--
+-- Limiti per la tabella `elencano`
+--
+ALTER TABLE `elencano`
+  ADD CONSTRAINT `elencano_ibfk_1` FOREIGN KEY (`id_professore`) REFERENCES `professori` (`id_professore`),
+  ADD CONSTRAINT `elencano_ibfk_2` FOREIGN KEY (`id_domanda`) REFERENCES `domande` (`id_domanda`);
 
 --
 -- Limiti per la tabella `insegnano`
