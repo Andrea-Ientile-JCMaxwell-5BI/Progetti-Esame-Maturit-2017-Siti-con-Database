@@ -11,20 +11,27 @@ table{
     margin: auto;
     border-collapse: collapse;
     width: 60%;
+
 }
 
 th, td {
+   font-size: 20px;
     padding: 8px;
     text-align: left;
     border-bottom: 1px solid #ddd;
+    background-color: white;
 }
 
+th {
+    background-color: #4CAF50;
+    color: white;
+}
 .btn {
 
     background-color: #4CAF50; /* Green */
     border: none;
     color: white;
-   
+
   text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -33,7 +40,7 @@ th, td {
 	padding: 65px 30px;
 	font-size: 40px;
     font-family:georgia;
-	
+
 
 }
 
@@ -51,7 +58,7 @@ th, td {
 	padding: 65px 129px;
 	font-size: 40px;
     font-family:georgia;
-	
+
 
 }
 
