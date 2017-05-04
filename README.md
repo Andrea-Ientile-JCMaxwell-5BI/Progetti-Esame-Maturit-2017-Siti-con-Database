@@ -1,7 +1,7 @@
 ## Progetti-Esame-Maturit-2017-Siti-con-Database
 # Descrizione
 
-Creazione di un sito per la gestione di compiti in classe, utilizando Sql, Php e HTML per l'integrazionde del Database nel sito e l'utilizzo del CSS per la parte grafica.
+Creazione di un sito per la gestione di compiti in classe, utilizando Sql e Php per l'integrazionde del Database nel sito e l'utilizzo del CSS per la parte grafica.
 
 In particolare si devono poter:
 
