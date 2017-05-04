@@ -4,24 +4,17 @@ Creazione di un sito per la gestione di compiti in classe, utilizando MySql e Ph
 
 In particolare si devono poter:
 
-o inserire le proprie classi
+o inserire le proprie classi;
 
-o creare un archivio di domande
+o creare un archivio di domande;
 
-o generare un compito in classe selezionando le domande dall’archivio
+o generare un compito in classe selezionando le domande dall’archivio;
 
-o generare un pdf del compito
+o generare un pdf del compito;
 
-o dare la possibilità di randomizzare l’ordine delle domande e delle risposte all’interno delle domande
+o dare la possibilità di randomizzare l’ordine delle domande e delle risposte all’interno delle domande;
 
-o supportare almeno: testo libero, inserimento di immagini, checkbox, liste, vero/falso
+o supportare almeno: testo libero, inserimento di immagini, checkbox, liste, vero/falso;
 
- Pianificazione 
-
- Tempo stimato completamento progetto: 200 ore + 100 ore di approfondimento.
- 
- Conoscenze iniziali: basi HTML, creazione Database con MySql.
- 
- Conoscenze necessarie: HTML in maniere approfondita, linguaggio PHP per il collegamento tra sito e database, CSS per aspetto grafico.
- 
+o utilizzo di tutte le abilità apprese durante il corso degli anni, in specifico della materia di indirizzo Informatica.
 
