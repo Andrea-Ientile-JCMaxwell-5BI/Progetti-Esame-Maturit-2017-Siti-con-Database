@@ -37,7 +37,7 @@ function filterTable($query)
 		<link rel="stylesheet" type="text/css" href="style_insegnante.css">
 
     </head>
-    <body>
+    <body background="sfondo_insegnante.jpg">
 
 
         <form action="Classi.php" method="post">
