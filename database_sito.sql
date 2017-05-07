@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Apr 24, 2017 alle 15:00
+-- Creato il: Mag 07, 2017 alle 17:22
 -- Versione del server: 10.1.21-MariaDB
 -- Versione PHP: 7.1.1
 
@@ -40,7 +40,9 @@ CREATE TABLE `alunni` (
 --
 
 INSERT INTO `alunni` (`id_alunno`, `id_classe`, `nome`, `cognome`, `data_nascita`, `codice_fiscale`) VALUES
-(1, 1, 'Alessandro', 'Ientile', '2017-04-17', 'vfdsgdfghdsf43');
+(1, 1, 'Alessandro', 'Ientile', '2017-04-17', 'vfdsgdfghdsf43'),
+(2, 5, 'luca', 'ignizio', '2017-05-09', 'vfdhgsdfh45w6'),
+(3, 2, 'federico', 'caria', '2017-05-02', 'fwasegsdg34532');
 
 -- --------------------------------------------------------
 
@@ -62,7 +64,8 @@ INSERT INTO `appartengono` (`id_appartengono`, `id_professore`, `id_classe`) VAL
 (1, 1, 2),
 (0, 1, 3),
 (0, 2, 1),
-(2, 2, 4);
+(2, 2, 4),
+(0, 4, 5);
 
 -- --------------------------------------------------------
 
@@ -84,7 +87,8 @@ INSERT INTO `classi` (`id_classe`, `aula`, `indirizzo`) VALUES
 (1, '3B', 'Artistico'),
 (2, '4C', 'Scientifico'),
 (3, '1E', 'Informatico'),
-(4, '5B', 'Telecomunicazioni');
+(4, '5B', 'Telecomunicazioni'),
+(5, '1F', 'energia');
 
 -- --------------------------------------------------------
 
@@ -107,8 +111,19 @@ CREATE TABLE `distribuiscono` (
 CREATE TABLE `domande` (
   `id_domanda` int(11) NOT NULL,
   `id_materia` int(11) NOT NULL,
-  `tipologia` varchar(255) DEFAULT NULL
+  `tipologia` varchar(255) DEFAULT NULL,
+  `descrizione` text NOT NULL,
+  `argomento` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `domande`
+--
+
+INSERT INTO `domande` (`id_domanda`, `id_materia`, `tipologia`, `descrizione`, `argomento`) VALUES
+(1, 3, 'aperta', 'Quanto fa 2 + 3?', 'addizioni'),
+(2, 1, 'aperta', 'Come si dice gatto in inglese?', 'animali'),
+(3, 3, 'aperta', 'Quanto fa 7*3?', 'moltiplicazioni');
 
 -- --------------------------------------------------------
 
@@ -122,6 +137,35 @@ CREATE TABLE `elencano` (
   `id_domanda` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dump dei dati per la tabella `elencano`
+--
+
+INSERT INTO `elencano` (`id_elencano`, `id_professore`, `id_domanda`) VALUES
+(0, 3, 2),
+(0, 4, 1),
+(0, 4, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `gestiscono`
+--
+
+CREATE TABLE `gestiscono` (
+  `id_gestiscono` int(11) NOT NULL,
+  `id_professore` int(11) NOT NULL,
+  `id_alunno` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `gestiscono`
+--
+
+INSERT INTO `gestiscono` (`id_gestiscono`, `id_professore`, `id_alunno`) VALUES
+(0, 4, 1),
+(0, 4, 3);
+
 -- --------------------------------------------------------
 
 --
@@ -134,6 +178,13 @@ CREATE TABLE `insegnano` (
   `id_materia` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dump dei dati per la tabella `insegnano`
+--
+
+INSERT INTO `insegnano` (`id_insegnano`, `id_professore`, `id_materia`) VALUES
+(0, 4, 3);
+
 -- --------------------------------------------------------
 
 --
@@ -144,6 +195,15 @@ CREATE TABLE `materie` (
   `id_materia` int(11) NOT NULL,
   `nome_materia` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `materie`
+--
+
+INSERT INTO `materie` (`id_materia`, `nome_materia`) VALUES
+(1, 'inglese'),
+(2, 'storia'),
+(3, 'matematica');
 
 -- --------------------------------------------------------
 
@@ -182,6 +242,14 @@ CREATE TABLE `voti` (
   `valutazione` float(2,1) NOT NULL,
   `tipologia` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `voti`
+--
+
+INSERT INTO `voti` (`id_alunno`, `id_voto`, `valutazione`, `tipologia`) VALUES
+(1, 1, 9.9, 'scritto'),
+(2, 2, 6.0, 'orale');
 
 --
 -- Indici per le tabelle scaricate
@@ -229,6 +297,13 @@ ALTER TABLE `elencano`
   ADD KEY `id_domanda` (`id_domanda`);
 
 --
+-- Indici per le tabelle `gestiscono`
+--
+ALTER TABLE `gestiscono`
+  ADD PRIMARY KEY (`id_professore`,`id_alunno`),
+  ADD KEY `id_alunno` (`id_alunno`);
+
+--
 -- Indici per le tabelle `insegnano`
 --
 ALTER TABLE `insegnano`
@@ -262,17 +337,17 @@ ALTER TABLE `voti`
 -- AUTO_INCREMENT per la tabella `alunni`
 --
 ALTER TABLE `alunni`
-  MODIFY `id_alunno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_alunno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT per la tabella `classi`
 --
 ALTER TABLE `classi`
-  MODIFY `id_classe` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_classe` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT per la tabella `domande`
 --
 ALTER TABLE `domande`
-  MODIFY `id_domanda` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_domanda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT per la tabella `professori`
 --
@@ -282,7 +357,7 @@ ALTER TABLE `professori`
 -- AUTO_INCREMENT per la tabella `voti`
 --
 ALTER TABLE `voti`
-  MODIFY `id_voto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_voto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Limiti per le tabelle scaricate
 --
@@ -319,6 +394,13 @@ ALTER TABLE `domande`
 ALTER TABLE `elencano`
   ADD CONSTRAINT `elencano_ibfk_1` FOREIGN KEY (`id_professore`) REFERENCES `professori` (`id_professore`),
   ADD CONSTRAINT `elencano_ibfk_2` FOREIGN KEY (`id_domanda`) REFERENCES `domande` (`id_domanda`);
+
+--
+-- Limiti per la tabella `gestiscono`
+--
+ALTER TABLE `gestiscono`
+  ADD CONSTRAINT `gestiscono_ibfk_1` FOREIGN KEY (`id_professore`) REFERENCES `professori` (`id_professore`),
+  ADD CONSTRAINT `gestiscono_ibfk_2` FOREIGN KEY (`id_alunno`) REFERENCES `alunni` (`id_alunno`);
 
 --
 -- Limiti per la tabella `insegnano`
