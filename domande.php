@@ -58,6 +58,7 @@ function filterTable($query)
                     <th>Tipologia</th>
                     <th>Descrizione</th>
                     <th>Argomento</th>
+			<th>Seleziona</th>
 
 
 
@@ -68,6 +69,7 @@ function filterTable($query)
                     <td><?php echo $row['tipologia'];?></td>
                     <td><?php echo $row['descrizione'];?></td>
                     <td><?php echo $row['argomento'];?></td>
+			<td> <input type="checkbox" name="messaggi[]"  value="<? echo $id ?>"> </td>
 
 
 
