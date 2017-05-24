@@ -21,7 +21,7 @@ if(isset($_POST['search']))
     $valore_da_cercare = $_POST['valore_da_cercare'];
     // search in all table columns
     // using concat mysql function
-    $query = "SELECT * FROM classi,appartengono,professori WHERE appartengono.id_classe = classi.id_classe AND appartengono.id_professore = professori.id_professore AND professori.username ='$username' AND CONCAT(`aula`) LIKE '%".$valore_da_cercare."%'";
+    $query = "SELECT * FROM classi,appartengono,professori WHERE appartengono.id_classe = classi.id_classe AND appartengono.id_professore = professori.id_professore AND professori.username ='$username' AND CONCAT(`indirizzo`) LIKE '%".$valore_da_cercare."%'";
     $search_result = filterTable($query);
 
 }
@@ -55,7 +55,7 @@ function filterTable($query)
 
             <table>
                 <tr>
-                    <th>Id Classe</th>
+                    
                     <th>Aula</th>
                     <th>Indirizzo</th>
 
@@ -64,7 +64,7 @@ function filterTable($query)
 
 				 <?php while($row = mysqli_fetch_array($search_result)):?>
                 <tr>
-                    <td><?php echo $row['id_classe'];?></td>
+                    
                     <td><?php echo $row['aula'];?></td>
                     <td><?php echo $row['indirizzo'];?></td>
 
@@ -73,7 +73,7 @@ function filterTable($query)
                 <?php endwhile;?>
             </table>
 
-				<p align="center"> <input class="txt" type="text" name="valore_da_cercare" placeholder="Classe..."><br><br>
+				<p align="center"> <input class="txt" type="text" name="valore_da_cercare" placeholder="Indirizzo..."><br><br>
                        <input class="btn" type="submit" name="search" value="Cerca per classe">
 					   <input class="btn1" type="submit" name="search" value="Reset">
 					   </p>
@@ -82,3 +82,4 @@ function filterTable($query)
 
     </body>
 </html>
+
