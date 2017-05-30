@@ -11,12 +11,18 @@ if(isset($_POST['search']))
     $valore_da_cercare = $_POST['valore_da_cercare'];
     // search in all table columns
     // using concat mysql function
-    $query = "SELECT * FROM classi,appartengono,professori WHERE appartengono.id_classe = classi.id_classe AND appartengono.id_professore = professori.id_professore AND professori.username ='$username' AND CONCAT(`indirizzo`) LIKE '%".$valore_da_cercare."%'";
+    $query = "SELECT * FROM classi,appartengono,professori 
+    WHERE appartengono.id_classe = classi.id_classe 
+    AND appartengono.id_professore = professori.id_professore 
+    AND professori.username ='$username' AND CONCAT(`indirizzo`) LIKE '%".$valore_da_cercare."%'";
 
 
 }
  else {
-   $query = "SELECT classi.* FROM classi, appartengono, professori WHERE appartengono.id_classe = classi.id_classe AND appartengono.id_professore = professori.id_professore AND professori.username ='$username' ;";
+   $query = "SELECT classi.* FROM classi, appartengono, professori 
+   WHERE appartengono.id_classe = classi.id_classe 
+   AND appartengono.id_professore = professori.id_professore 
+   AND professori.username ='$username' ;";
 
 }
 
