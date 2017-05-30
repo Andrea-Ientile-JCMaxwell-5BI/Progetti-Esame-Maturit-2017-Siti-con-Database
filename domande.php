@@ -6,21 +6,10 @@
 
 
 	//PARAMETRI DI CONESSIONE AL DB
-	$DB_host     = 'localhost';
-	$DB_user     = 'root';
-	$DB_password = '';
-	$DB_name     = 'database_sito';
-
+	$connect = mysqli_connect("localhost","root","");
+	mysqli_select_db($connect, "database_sito");
 	//CONNESSIONE
-	$link = mysqli_connect($DB_host, $DB_user, $DB_password);
-	if (!$link) {
-		die ('errore db' . mysqli_error());
-	} else {echo '';}
-	//SELEZIONE DB
-	$db_selected = mysqli_select_db($DB_name, $link);
-	if (!$db_selected) {
-		die ("Errore nella selezione del database: " . mysqli_error());
-	}else {echo '';}
+
 
 
 
@@ -60,7 +49,7 @@ if(isset($_POST['search']))
 		 }
 
 
-	$search_result = mysqli_query($query);
+	$search_result = mysqli_query($connect,$query);
 
 ?>
     <head>
@@ -124,7 +113,7 @@ if(isset($_POST['search2'])) {
 		   $query = "SELECT *
 		   FROM domande WHERE id_domanda = $m_id";
 
-		   $search_result1 = mysqli_query($query);
+		   $search_result1 = mysqli_query($connect,$query);
 
 
 					while($row2 = mysqli_fetch_array($search_result1)):
@@ -162,6 +151,3 @@ if(isset($_POST['search2'])) {
 
 
         </form>
-
-    </body>
-</html>
