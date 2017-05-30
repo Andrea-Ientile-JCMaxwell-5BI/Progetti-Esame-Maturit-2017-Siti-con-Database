@@ -8,12 +8,18 @@ if(isset($_POST['search']))
 {
     $valore_da_cercare = $_POST['valore_da_cercare'];
 
-    $query = "SELECT alunni.*, classi.aula FROM gestiscono, professori, alunni, classi WHERE gestiscono.id_professore = professori.id_professore AND gestiscono.id_alunno = alunni.id_alunno AND professori.username ='$username' AND alunni.id_classe = classi.id_classe AND classi.aula LIKE '%".$valore_da_cercare."%'";
+    $query = "SELECT alunni.*, classi.aula FROM gestiscono, professori, alunni, classi 
+    WHERE gestiscono.id_professore = professori.id_professore 
+    AND gestiscono.id_alunno = alunni.id_alunno AND professori.username ='$username' 
+    AND alunni.id_classe = classi.id_classe AND classi.aula LIKE '%".$valore_da_cercare."%'";
 
 
 }
  else {
-   $query = "SELECT alunni.*, classi.aula FROM gestiscono, professori, alunni, classi WHERE gestiscono.id_professore = professori.id_professore AND gestiscono.id_alunno = alunni.id_alunno  AND professori.username ='$username' AND alunni.id_classe = classi.id_classe;";
+   $query = "SELECT alunni.*, classi.aula FROM gestiscono, professori, alunni, classi 
+   WHERE gestiscono.id_professore = professori.id_professore 
+   AND gestiscono.id_alunno = alunni.id_alunno  AND professori.username ='$username' 
+   AND alunni.id_classe = classi.id_classe;";
 
 }
 
