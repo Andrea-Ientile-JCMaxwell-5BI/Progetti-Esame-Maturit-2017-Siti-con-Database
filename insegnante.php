@@ -25,7 +25,7 @@ include('connessione.php');
     <body background="sfondo_insegnante.jpg">
 
 
-        <form action="Classi.php" method="post">
+        <form>
 
 
             <table width= "450" id=frm align="center">
