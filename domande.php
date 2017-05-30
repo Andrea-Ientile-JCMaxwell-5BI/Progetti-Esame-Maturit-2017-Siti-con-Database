@@ -5,20 +5,8 @@
 //ini_set('display_errors', 1);
 
 
-	//PARAMETRI DI CONESSIONE AL DB
-	$connect = mysqli_connect("localhost","root","");
-	mysqli_select_db($connect, "database_sito");
-	//CONNESSIONE
-
-
-
-
-//Apro la sessione e...
-session_start();
-
-//Recupero i dati...
-$username = $_SESSION['username'];
-$password = $_SESSION['password'];
+	//PARAMETRI DI CONESSIONE AL DB E SESSION
+	include('connessione.php');
 
 
 // Search 1
