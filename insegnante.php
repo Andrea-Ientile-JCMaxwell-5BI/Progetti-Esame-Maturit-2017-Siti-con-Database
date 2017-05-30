@@ -3,29 +3,14 @@
 <?php
 
 
-//Apro la sessione e...
-session_start();
-
-//Recupero i dati...
-$username = $_SESSION['username'];
-$password = $_SESSION['password'];
-
-//facciamo una stampata a video!
-   //echo "Ciao " . $username . " la tua password è " . $password;
+//PARAMETRI DI CONESSIONE AL DB E SESSION
+include('connessione.php');
 
 
 
     $query = "SELECT * FROM `professori` WHERE username = '$username'";
-    $search_result = filterTable($query);
 
-// function to connect and execute the query
-function filterTable($query)
-{
-    $connect = mysqli_connect("localhost", "root", "", "database_sito");
-    $filter_Result = mysqli_query($connect, $query);
-    return $filter_Result;
-}
-
+    $search_result = mysqli_query($connect,$query);
 
 
 ?>
