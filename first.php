@@ -1,7 +1,7 @@
 <html>
 <head>
   <title>Pagina Iniziale</title>
-  <link rel="stylesheet" type="text/css" href="style_first.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
   <div class="background-wrap">
