@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<title>Pagina Registrazione</title>
-		 <link rel="stylesheet" type="text/css" href="style_login.css">
+		 <link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	<body id="body">
 		
