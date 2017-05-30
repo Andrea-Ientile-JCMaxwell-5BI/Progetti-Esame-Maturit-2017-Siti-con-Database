@@ -2,19 +2,9 @@
 <html>
 <?php
 
-// connect to mysql database
+//PARAMETRI DI CONESSIONE AL DB E SESSION
+include('connessione.php');
 
-$connect = mysqli_connect("localhost","root","");
-mysqli_select_db($connect, "database_sito");
-
-
-
-    //Apro la sessione e...
-session_start();
-
-//Recupero i dati...
-$username = $_SESSION['username'];
-$password = $_SESSION['password'];
 
 if(isset($_POST['search']))
 {
@@ -22,22 +12,16 @@ if(isset($_POST['search']))
     // search in all table columns
     // using concat mysql function
     $query = "SELECT * FROM classi,appartengono,professori WHERE appartengono.id_classe = classi.id_classe AND appartengono.id_professore = professori.id_professore AND professori.username ='$username' AND CONCAT(`indirizzo`) LIKE '%".$valore_da_cercare."%'";
-    $search_result = filterTable($query);
+
 
 }
  else {
    $query = "SELECT classi.* FROM classi, appartengono, professori WHERE appartengono.id_classe = classi.id_classe AND appartengono.id_professore = professori.id_professore AND professori.username ='$username' ;";
-   $search_result = filterTable($query);
+
 }
 
 // function to connect and execute the query
-function filterTable($query)
-{
-    $connect = mysqli_connect("localhost", "root", "", "database_sito");
-    $filter_Result = mysqli_query($connect, $query);
-    return $filter_Result;
-}
-
+$search_result = mysqli_query($connect,$query);
 
 ?>
 
@@ -55,7 +39,7 @@ function filterTable($query)
 
             <table>
                 <tr>
-                    
+
                     <th>Aula</th>
                     <th>Indirizzo</th>
 
@@ -64,7 +48,7 @@ function filterTable($query)
 
 				 <?php while($row = mysqli_fetch_array($search_result)):?>
                 <tr>
-                    
+
                     <td><?php echo $row['aula'];?></td>
                     <td><?php echo $row['indirizzo'];?></td>
 
@@ -74,7 +58,7 @@ function filterTable($query)
             </table>
 
 				<p align="center"> <input class="txt" type="text" name="valore_da_cercare" placeholder="Indirizzo..."><br><br>
-                       <input class="btn" type="submit" name="search" value="Cerca per Indirizzo">
+                       <input class="btn" type="submit" name="search" value="Cerca per classe">
 					   <input class="btn1" type="submit" name="search" value="Reset">
 					   </p>
 
@@ -82,4 +66,3 @@ function filterTable($query)
 
     </body>
 </html>
-
