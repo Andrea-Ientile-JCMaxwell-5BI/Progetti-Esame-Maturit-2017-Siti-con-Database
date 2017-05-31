@@ -5,6 +5,7 @@
 
 	//PARAMETRI DI CONESSIONE AL DB E SESSION
 	include('connessione.php');
+	require("fpdf/fpdf.php");
 
 
 
@@ -78,11 +79,7 @@
 
 
 			<table>
-	                <tr>
-	                    <th>Tipologia</th>
-	                    <th>Descrizione</th>
-	                    <th>Argomento</th>
-	                </tr>
+
 
 
 	<?php
@@ -91,7 +88,11 @@
 	if(isset($_POST['create'])) {
 
 
-		 if(isset($_POST['domande_id'])) 
+
+
+
+
+		 if(isset($_POST['domande_id']))
 		{
 
 			foreach ($_POST['domande_id'] as $key => $m_id)
@@ -103,15 +104,30 @@
 			   $search_result1 = mysqli_query($connect,$query);
 
 
+
 						while($row2 = mysqli_fetch_array($search_result1)):
+					   $pdf=new FPDF();
+						 $pdf->AddPage();
+						 $pdf->SetFont("Arial","B",20);
+						 $pdf->Cell(0,10,"Verifica del professore $username",1,1,C);
+						 $pdf->Cell(75,10,"Nome:",1,0);//primo numero indica la larghezza
+						 $pdf->Cell(75,10,"Cognome:",1,0);//terzo numero indica il contorno
+						 $pdf->Cell(40,10,"Classe:",1,0);
+						 $pdf->Ln();// per interrompere linea
+						 $pdf->SetFont("Arial","B",30);
+						 $pdf->Cell(0,30,"Domande:",0,1,C);
+						 $pdf->Ln();// per interrompere linea
+						 $pdf->SetFont("Arial","B",15);
+						 $pdf->Cell(0,-50,"$row2[descrizione]",0,1);
+						 $pdf->Ln();// per interrompere linea
+						 ob_end_clean();
+						 $pdf->output();
 						?>
-						<tr>
-							<td><?php echo $row2['tipologia'];?></td>
-							<td><?php echo $row2['descrizione'];?></td>
-							<td><?php echo $row2['argomento'];?></td>
-						</tr>
+
+
 						<?php
 						endwhile;
+
 
 
 			} // foreach
@@ -122,7 +138,7 @@
 
 		{
 
-		echo '<tr><td>nessuna selezione</td><td></td><td></td></tr>';
+		echo '<tr><th>nessuna selezione</th></tr>';
 
 		}
 
