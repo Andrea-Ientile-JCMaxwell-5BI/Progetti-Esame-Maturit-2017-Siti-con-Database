@@ -36,7 +36,7 @@
 	}
 	else
 	{
-		echo "Failed to login!";
+		header("location: pagina_errore.php");
 	}
    ?>
   </body>
