@@ -36,7 +36,7 @@
 	}
 	else
 	{
-		header("location: pagina_errore.php");
+		header("location: pagina_errore.html");
 	}
    ?>
   </body>
