@@ -17,7 +17,7 @@ table{
 th, td {
    font-size: 20px;
     padding: 8px;
-    text-align: left;
+    text-align: center;
     border-bottom: 1px solid #ddd;
     background-color: white;
 }
