@@ -14,6 +14,17 @@
 		
 			<form action= "process_login.php" method="POST" >
 				<table width= "450" id=frm align="center">
+					
+					<tr align="center">
+
+
+                                  <td colspan="2" width="50%">
+
+                                  <img src="logo.png" alt="first.php">
+
+                                    </td>
+
+                                    </tr>
 				
 				<tr>
 					<td align="center" width="50%"><input type = "text" id = "User" name = "User" placeholder="Username..."/></td>
