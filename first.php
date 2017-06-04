@@ -1,5 +1,6 @@
 <html>
 <head>
+
   <title>Pagina Iniziale</title>
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
@@ -9,7 +10,18 @@
       <source src="video_first.mp4" type="video/mp4">
       Video not supported
     </video>
-  <table width= "450" id=frm align="center">
+  <table width= "450" id="frm1" align="center">
+    <tr align="center">
+
+
+           <td colspan="2" width="50%">
+
+     <img src="logo.png" alt="first.php">
+
+     </td>
+
+    </tr>
+
 
 
   <tr align="center">
@@ -39,3 +51,4 @@
 
 </body>
 </html>
+
