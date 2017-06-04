@@ -39,6 +39,7 @@ $search_result = mysqli_query($connect,$query);
 
         <form action="alunni.php" method="post">
 
+            <img src="logo.png" style="top:9px; left:860px; position: relative;">
 
             <table>
                 <tr>
