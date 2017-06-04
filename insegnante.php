@@ -27,6 +27,7 @@ include('connessione.php');
 
         <form>
 
+            <img src="logo.png" style="top:9px; left:860px; position: relative;">
 
             <table width= "450" id=frm align="center">
                 <tr>
