@@ -107,7 +107,9 @@
 
 						while($row2 = mysqli_fetch_array($search_result1)):
 					   $pdf=new FPDF();
+						 $pdf=new FPDF();
 						 $pdf->AddPage();
+						 $pdf->Image('logo.png',90,35,35);
 						 $pdf->SetFont("Arial","B",20);
 						 $pdf->Cell(0,10,"Verifica del professore $username",1,1,C);
 						 $pdf->Cell(75,10,"Nome:",1,0);//primo numero indica la larghezza
@@ -115,10 +117,10 @@
 						 $pdf->Cell(40,10,"Classe:",1,0);
 						 $pdf->Ln();// per interrompere linea
 						 $pdf->SetFont("Arial","B",30);
-						 $pdf->Cell(0,30,"Domande:",0,1,C);
+						 $pdf->Cell(0,70,"Domande:",0,1,C);
 						 $pdf->Ln();// per interrompere linea
 						 $pdf->SetFont("Arial","B",15);
-						 $pdf->Cell(0,-50,"$row2[descrizione]",0,1);
+						 $pdf->Cell(0,-170,"$row2[descrizione]",0,1);
 						 $pdf->Ln();// per interrompere linea
 						 ob_end_clean();
 						 $pdf->output();
