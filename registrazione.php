@@ -48,7 +48,7 @@
 
 				 
 	             <td colspan="2" width="30%">
-				 <input type = "submit" id = "btn" value = "Registrati"/>
+				 <input type = "submit" id = "btn1" value = "Registrati"/>
 				 <input type = "reset" id = "btn2" value = "Reset"/>
 				 
 				 </td>
