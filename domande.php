@@ -50,7 +50,7 @@
 
 	        <form action="domande.php" method="post">
 
-            <img src="logo.png" style="top:9px; left:860px; position: relative;">
+            <a href="home.html"><img src="logo.png" style="top:9px; left:860px; position: relative;"></a>
 
 			<table>
 				<tr>
