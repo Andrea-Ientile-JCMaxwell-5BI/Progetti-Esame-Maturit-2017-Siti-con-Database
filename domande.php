@@ -46,7 +46,7 @@ if(isset($_POST['search']))
 
     </head>
 
-    <body background="sfondo_classe.jpg">
+    <body background="sfondo_domande.jpg">
 
         <form action="domande.php" method="post">
  <a href="home.html"><img src="logo.png" style="top:9px; left:860px; position: relative;"></a>
