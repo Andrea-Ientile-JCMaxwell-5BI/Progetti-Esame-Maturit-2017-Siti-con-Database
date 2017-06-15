@@ -73,8 +73,10 @@ if(isset($_POST['search']))
 		<p align="center">
 		<input class="txt" type="text" name="valore_da_cercare" placeholder="Argomento..."><br><br>
 		<input class="btn" type="submit" name="search" value="Cerca per argomento">
-		<input class="btn1" type="submit" name="search" value="Reset">
+		<input class="btn" type="submit" name="search" value="Reset">
 		<input class="btn" type="submit" name="search2" value="Crea...">
+	        <input class="btn" type="button" name="inserire" value="Inserisci nuove domande" onclick="document.location.href='inserire_domande.php'">
+			
 		</p>
 
 
