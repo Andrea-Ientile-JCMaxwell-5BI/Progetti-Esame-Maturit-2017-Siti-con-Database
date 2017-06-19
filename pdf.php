@@ -24,7 +24,7 @@ foreach ($domande as $key=>$value) {
 	$pdf->AddPage();
 	$pdf->Image('logo.png',90,35,35);
 	$pdf->SetFont("Arial","B",20);
-	$pdf->Cell(0,10,"Verifica del professore $professore",1,1,C);
+	$pdf->Cell(0,10,"Verifica del professore $username",1,1,C);
 	$pdf->Cell(75,10,"Nome:",1,0);//primo numero indica la larghezza
 	$pdf->Cell(75,10,"Cognome:",1,0);//terzo numero indica il contorno
 	$pdf->Cell(40,10,"Classe:",1,0);
