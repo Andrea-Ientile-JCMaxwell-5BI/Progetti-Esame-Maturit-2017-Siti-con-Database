@@ -17,10 +17,8 @@ if(isset($_POST['search']))
 			// search in all table columns
 			// using concat mysql function
 			$query = "SELECT *
-			FROM domande, elencano, professori
-			WHERE elencano.id_domanda = domande.id_domanda
-			AND elencano.id_professore = professori.id_professore
-			AND professori.username ='$username'
+			FROM domande, professori
+			WHERE professori.username ='$username'
 			AND domande.argomento LIKE '%".$valore_da_cercare."%'";
 
 		}
@@ -29,10 +27,8 @@ if(isset($_POST['search']))
 
 		{
 		   $query = "SELECT *
-		   FROM domande, elencano, professori
-		   WHERE elencano.id_domanda = domande.id_domanda
-		   AND elencano.id_professore = professori.id_professore
-		   AND professori.username ='$username' ;";
+		   FROM domande, professori
+		   WHERE professori.username ='$username' ;";
 
 		 }
 
