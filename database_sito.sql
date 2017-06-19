@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 07, 2017 alle 17:22
--- Versione del server: 10.1.21-MariaDB
--- Versione PHP: 7.1.1
+-- Creato il: Giu 19, 2017 alle 15:14
+-- Versione del server: 10.1.22-MariaDB
+-- Versione PHP: 7.1.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -42,7 +44,11 @@ CREATE TABLE `alunni` (
 INSERT INTO `alunni` (`id_alunno`, `id_classe`, `nome`, `cognome`, `data_nascita`, `codice_fiscale`) VALUES
 (1, 1, 'Alessandro', 'Ientile', '2017-04-17', 'vfdsgdfghdsf43'),
 (2, 5, 'luca', 'ignizio', '2017-05-09', 'vfdhgsdfh45w6'),
-(3, 2, 'federico', 'caria', '2017-05-02', 'fwasegsdg34532');
+(3, 2, 'Federico', 'Caria', '2017-05-02', 'fwasegsdg34532'),
+(4, 4, 'Valerio', 'Cella', '1997-06-08', 'rf43q534tawtaweq34tew'),
+(5, 1, 'Alessio', 'Gulmini', '1998-06-07', 'sadf34qtrwefas34'),
+(6, 5, 'Loris', 'Ghione', '1998-10-06', 'hsryha6424q4RFAWER'),
+(7, 3, 'Daniel', 'Ragusa', '1997-06-12', 'vdzbgeatq2435fasf32');
 
 -- --------------------------------------------------------
 
@@ -61,10 +67,10 @@ CREATE TABLE `appartengono` (
 --
 
 INSERT INTO `appartengono` (`id_appartengono`, `id_professore`, `id_classe`) VALUES
-(1, 1, 2),
 (0, 1, 3),
-(0, 2, 1),
-(2, 2, 4),
+(0, 4, 1),
+(1, 4, 2),
+(2, 4, 4),
 (0, 4, 5);
 
 -- --------------------------------------------------------
@@ -110,7 +116,6 @@ CREATE TABLE `distribuiscono` (
 
 CREATE TABLE `domande` (
   `id_domanda` int(11) NOT NULL,
-  `id_materia` int(11) NOT NULL,
   `tipologia` varchar(255) DEFAULT NULL,
   `descrizione` text NOT NULL,
   `argomento` varchar(255) NOT NULL
@@ -120,31 +125,11 @@ CREATE TABLE `domande` (
 -- Dump dei dati per la tabella `domande`
 --
 
-INSERT INTO `domande` (`id_domanda`, `id_materia`, `tipologia`, `descrizione`, `argomento`) VALUES
-(1, 3, 'aperta', 'Quanto fa 2 + 3?', 'addizioni'),
-(2, 1, 'aperta', 'Come si dice gatto in inglese?', 'animali'),
-(3, 3, 'aperta', 'Quanto fa 7*3?', 'moltiplicazioni');
-
--- --------------------------------------------------------
-
---
--- Struttura della tabella `elencano`
---
-
-CREATE TABLE `elencano` (
-  `id_elencano` int(11) NOT NULL,
-  `id_professore` int(11) NOT NULL,
-  `id_domanda` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dump dei dati per la tabella `elencano`
---
-
-INSERT INTO `elencano` (`id_elencano`, `id_professore`, `id_domanda`) VALUES
-(0, 3, 2),
-(0, 4, 1),
-(0, 4, 3);
+INSERT INTO `domande` (`id_domanda`, `tipologia`, `descrizione`, `argomento`) VALUES
+(6, 'aperta', 'Enunciato del Teorema di Cauchy.', 'Equazioni differenziali'),
+(12, 'aperta', 'Definizione di Primitiva.', 'Primitiva'),
+(13, 'aperta', 'Differenza tra Integrali Indefiniti e Integrali Definiti.', 'Integrali'),
+(14, 'aperta', 'Definizione di Equazione Differenziale.', 'Equazioni differenziali');
 
 -- --------------------------------------------------------
 
@@ -164,7 +149,11 @@ CREATE TABLE `gestiscono` (
 
 INSERT INTO `gestiscono` (`id_gestiscono`, `id_professore`, `id_alunno`) VALUES
 (0, 4, 1),
-(0, 4, 3);
+(0, 4, 3),
+(0, 4, 4),
+(0, 4, 5),
+(0, 4, 6),
+(0, 4, 7);
 
 -- --------------------------------------------------------
 
@@ -225,7 +214,7 @@ CREATE TABLE `professori` (
 --
 
 INSERT INTO `professori` (`id_professore`, `nome`, `cognome`, `data_nascita`, `username`, `password`) VALUES
-(1, 'andrea', 'ientile', '1997-09-24', 'ienti', 'esame'),
+(1, 'andrea', 'ientile', '1997-09-24', 'ienti', 'f13c58cd3a587d7995463375a528dd4b'),
 (2, 'pappa', 'clown', '1998-01-01', 'andre', 'fesso'),
 (3, 'fsadf', 'asdf', '0000-00-00', 'dad', '1c42f9c1ca2f65441465b43cd9339d6c'),
 (4, 'Eduardo', 'Bonafortuna', '1969-09-01', 'bonny', 'f13c58cd3a587d7995463375a528dd4b');
@@ -286,15 +275,7 @@ ALTER TABLE `distribuiscono`
 -- Indici per le tabelle `domande`
 --
 ALTER TABLE `domande`
-  ADD PRIMARY KEY (`id_domanda`),
-  ADD KEY `id_materia` (`id_materia`);
-
---
--- Indici per le tabelle `elencano`
---
-ALTER TABLE `elencano`
-  ADD PRIMARY KEY (`id_professore`,`id_domanda`),
-  ADD KEY `id_domanda` (`id_domanda`);
+  ADD PRIMARY KEY (`id_domanda`);
 
 --
 -- Indici per le tabelle `gestiscono`
@@ -337,7 +318,7 @@ ALTER TABLE `voti`
 -- AUTO_INCREMENT per la tabella `alunni`
 --
 ALTER TABLE `alunni`
-  MODIFY `id_alunno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_alunno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT per la tabella `classi`
 --
@@ -347,7 +328,7 @@ ALTER TABLE `classi`
 -- AUTO_INCREMENT per la tabella `domande`
 --
 ALTER TABLE `domande`
-  MODIFY `id_domanda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_domanda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT per la tabella `professori`
 --
@@ -383,19 +364,6 @@ ALTER TABLE `distribuiscono`
   ADD CONSTRAINT `distribuiscono_ibfk_2` FOREIGN KEY (`id_materia`) REFERENCES `materie` (`id_materia`);
 
 --
--- Limiti per la tabella `domande`
---
-ALTER TABLE `domande`
-  ADD CONSTRAINT `domande_ibfk_1` FOREIGN KEY (`id_materia`) REFERENCES `materie` (`id_materia`);
-
---
--- Limiti per la tabella `elencano`
---
-ALTER TABLE `elencano`
-  ADD CONSTRAINT `elencano_ibfk_1` FOREIGN KEY (`id_professore`) REFERENCES `professori` (`id_professore`),
-  ADD CONSTRAINT `elencano_ibfk_2` FOREIGN KEY (`id_domanda`) REFERENCES `domande` (`id_domanda`);
-
---
 -- Limiti per la tabella `gestiscono`
 --
 ALTER TABLE `gestiscono`
@@ -414,6 +382,7 @@ ALTER TABLE `insegnano`
 --
 ALTER TABLE `voti`
   ADD CONSTRAINT `voti_ibfk_1` FOREIGN KEY (`id_alunno`) REFERENCES `alunni` (`id_alunno`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
